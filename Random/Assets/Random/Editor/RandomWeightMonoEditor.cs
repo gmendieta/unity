@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(RandomWeight))]
+[CustomEditor(typeof(RandomWeightMono))]
 public class RandomWeightEditor : Editor
 {
 	private SerializedObject m_Object = null;
@@ -17,14 +17,14 @@ public class RandomWeightEditor : Editor
 		DrawDefaultInspector();
 		if (EditorGUI.EndChangeCheck() == true)
 		{
-			(m_Object.targetObject as RandomWeight).UpdateWeightSum();
+			(m_Object.targetObject as RandomWeightMono).UpdateWeightSum();
 		}
 
 		EditorGUILayout.Separator();
 
 		if (GUILayout.Button(new GUIContent("Test Random Weight")) == true)
 		{
-			(m_Object.targetObject as RandomWeight).TestRandomWeight();
+			(m_Object.targetObject as RandomWeightMono).TestRandomWeight();
 		}
 	}
 }

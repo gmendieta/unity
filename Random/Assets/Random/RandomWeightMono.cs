@@ -9,17 +9,21 @@ using com.GMM.RandomUtils;
 /// <summary>
 /// Random Weight
 /// </summary>
-[System.Serializable]
-public class RandomWeight
+public class RandomWeightMono : MonoBehaviour 
 {
 	public bool updateSumEachRandom = false;
 	[Range(0, 100)]
 	public int[] weights;
-	private int _sum = 0;
+	public int _sum = 0; // Private 
 	public int WeightSum { get { return _sum; } }
 
 	private bool _initialized = false;
-	
+
+	private void Awake()
+	{
+		UpdateWeightSum();
+	}
+
 	/// <summary>
 	/// Updates the sum of all weights
 	/// </summary>
